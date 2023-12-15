@@ -46,11 +46,13 @@ public class GetPixelColorModule extends ReactContextBaseJavaModule {
       try {
         final int pixel = this.bitmap.getPixel(x, y);
 
+        final int alpha = Color.alpha(pixel);
         final int red = Color.red(pixel);
         final int green = Color.green(pixel);
         final int blue = Color.blue(pixel);
 
         final WritableArray result = new WritableNativeArray();
+        result.pushInt(alpha);
         result.pushInt(red);
         result.pushInt(green);
         result.pushInt(blue);
